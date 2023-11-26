@@ -1,5 +1,5 @@
 import React from "react";
-import { PlayArrow, Pause } from "@mui/icons-material";
+import { PlayArrow, Pause, FastForward, FastRewind } from "@mui/icons-material";
 import { Slider, IconButton } from "@mui/material";
 
 import { AudioContext } from "../../contexts/AudioContext";
@@ -48,7 +48,7 @@ const TimeControls = () => {
 };
 
 const PlayBar = () => {
-  const { currentTrack, handleToggleAudio, isPlaying } =
+  const { currentTrack, nextTrack, handleToggleAudio, isPlaying } =
     React.useContext(AudioContext);
 
   const { title, artists, duration, preview } = currentTrack;
@@ -58,13 +58,19 @@ const PlayBar = () => {
   return (
     <div className={style.playbar}>
       <img className={style.preview} src={preview} alt="" />
-      <IconButton onClick={() => handleToggleAudio(currentTrack)}>
-        {isPlaying ? <Pause /> : <PlayArrow />}
-      </IconButton>
       <div className={style.credits}>
         <h4>{title}</h4>
         <p>{artists}</p>
       </div>
+      <IconButton>
+        <FastRewind />
+      </IconButton>
+      <IconButton onClick={() => handleToggleAudio(currentTrack)}>
+        {isPlaying ? <Pause /> : <PlayArrow />}
+      </IconButton>
+      <IconButton onClick={() => nextTrack()}>
+        <FastForward />
+      </IconButton>
       <div className={style.slider}>
         <TimeControls />
         <p>{formatedDuration}</p>
