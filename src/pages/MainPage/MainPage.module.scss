@@ -6,6 +6,12 @@
   width: 300px;
   margin: 10px 150px;
 
+  &:active {
+    &::placeholder {
+      color: rgb(254, 203, 64);
+    }
+  }
+
   & > * {
     text-align: center !important;
     color: #9e9e9e;
@@ -18,11 +24,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  flex: 1;
   margin: 10px 0;
-  max-height: calc(100vh - 195px);
+  max-height: 740px;
   overflow: auto;
   padding: 15px;
-  border: 1px solid #eee;
+  border: 2px solid rgb(254, 203, 64);
   border-radius: 20px;
 }

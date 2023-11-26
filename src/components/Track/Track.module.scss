@@ -1,8 +1,16 @@
 .track {
   display: flex;
   align-items: center;
-  width: 100%;
+  padding: 5px 10px;
+  max-width: 550px;
   gap: 20px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 2px 2px rgb(254, 203, 64);
+    border-radius: 6px;
+    cursor: pointer;
+  }
 
   &b {
     letter-spacing: 1px;
@@ -31,5 +39,5 @@
 }
 
 .playing * {
-  color: #9340fe !important;
+  color: rgb(254, 203, 64) !important;
 }
